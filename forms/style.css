@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+body {
+    background-image: url(MicrosoftTeams-image.png);
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho-imagem {
+    height: 70px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cabecalho-menu-item {
+    color: rgb(125, 203, 248);
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cabecalho-menu-item:hover {
+    cursor: pointer;
+    color: crimson;
+    text-decoration: underline;
+}
+
+.imagem-cabecalho {
+    width: 20px;
+    margin: 0 5px;
+}
+
+.cabecalho-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.banner-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    max-width: 1312px; /* Ajusta a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    padding: 10px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.titulo {
+    text-align: center;
+    margin: 20px 0;
+    color: rgb(125, 203, 248);
+    font-size: 24px;
+}
+
+
+section {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden; /* Cria um contexto para conter as imagens flutuantes */
+    text-align: left;
+    margin: 15px;
+    margin-left: 15%;
+    margin-right: 13%;
+    padding: 3px;
+    padding-left: 5%;
+    padding-right: 30%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form select:hover {
+    border-color: rgb(125, 203, 248);
+    cursor: pointer;
+}
+
+form textarea:hover {
+    border-color: rgb(125, 203, 248);
+}
+
+form input[type="date"]:hover {
+    cursor: pointer;
+}
+
+form input:hover{
+    border-color: rgb(125, 203, 248);
+}
+
+form select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 25px;
+    background: url("arrow-down.png") no-repeat right center;
+    background-size: 20px 20px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+.button {
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:14px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    margin-bottom: 20px;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.Button:active {
+	position:relative;
+	top:1px;
+}
+
+.gif-meio-1 {
+    position: absolute; /* Altere para posicionamento absoluto */
+    top: -90px; /* Alinha a parte superior da imagem com o topo do container */
+    right: 3%; /* Ajuste o valor para posicionar a imagem à direita do texto */
+    max-width: 45%;
+    height: 150px;
+}
+
+.gif-meio-2 {
+    position: absolute; /* Altere para posicionamento absoluto */
+    margin-top: 500px;
+    top: 0; /* Alinha a parte superior da imagem com o topo do container */
+    right: 10%; /* Ajuste o valor para posicionar a imagem à direita do texto */
+    max-width: 45%;
+    height: 150px;
+}
+
+.container-button {
+    background-color: #ffffff;
+    padding: 15px;
+    text-align: center; /* Adicione esta linha para centralizar o texto */
+    font-size: 16px;
+    margin-left: 15%;
+    margin-right: 13%;
+}
+
+.footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 15%;
+    margin-right: 13%;
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+#TJRSREDE {
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.icones {
+    text-align: center;
+}
+
+.icones a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s ease; /* Adiciona a transição para o efeito de hover */
+}
+
+.icones a:hover {
+    transform: translateY(-5px); /* Move o ícone um pouco para cima no efeito de hover */
+}
+
+.icones img {
+    max-width: 40px; /* Adjust the maximum width as needed */
+    height: auto;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: -40px; /* Ajuste o valor conforme necessário */
+}
+
+/*mobile*/
+
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .cabecalho-imagem {
+        margin: 0;
+    }
+
+    .cabecalho-menu-item {
+        color: rgb(125, 203, 248);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .banner-image {
+        max-width: 90%;
+        padding-left: 5% ;
+    }
+
+    .meio {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .imagem-meio {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        top: 0;
+        right: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
