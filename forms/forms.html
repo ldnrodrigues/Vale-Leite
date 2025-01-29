@@ -8,6 +8,30 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+     <style>
+        .email-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
     <header class="cabecalho" data-aos="fade-down">  
@@ -30,75 +54,81 @@
                 <h2>Formulário Vale Leite</h2>
             </div>
         
-            <div class="form" id="formulario">
-                <form action="https://formsubmit.co/lglleonardo360@gmail.com" method="POST">
-                    <label for="nome">Nome do Requisitante:</label>
-                    <input type="text" id="nome" name="Nome" placeholder="Digite seu nome" required><br><br>
-                    
-                    <label for="matricula">Matricula:</label>
-                    <input type="number" id="matricula" name="Matricula" placeholder="Digite sua matricula" required><br><br>
-                    
-                    <label for="data-de-nascimento">Data de Nascimento:</label>
-                    <input type="date" id="date" name="Data de Nascimento" required><br><br>
-                    
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00" required><br><br>
-                    
-                    <label for="setor">Setor:</label>
-                    <select id="setor" name="Setor" required>
-                        <option value="ditic">DITIC</option>
-                        <option value="cadi">CADI</option>
-                        <option value="apoio">Apoio Administrativo</option>
-                        <option value="nupemec">NUPEMEC</option>
-                        <option value="cast">Cast</option>
-                        <option value="advocacia">Advocacia</option>
-                    </select><br><br>
-                    
-                    <label for="tipo-de-leite">Tipo de Leite:</label>
-                    <select id="tipo-de-leite" name="Tipo de Leite" required>
-                        <option value="integral">Integral</option>
-                        <option value="sem-lactose">Sem Lactose</option>
-                        <option value="desnatado">Desnatado</option>
-                        <option value="semi-desnatado">Semi Desnatado</option>
-                        <option value="sem gordura">Sem Gordura</option>
-                    </select><br><br>
-                    
-                    <label for="é-intolerante">É Intolerante?</label>
-                    <select id="é-intolerante" name="É Intolerante?" required>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>
-                    </select><br><br>
-                    
-                    <label for="marca-de-leite-preferida">Marca de Leite Preferida:</label>
-                    <input type="text" id="marca-de-leite-preferida" name="Marca de Leite Preferida" placeholder="Sua marca preferida" required><br><br>
-                    
-                    <label for="consome-leite-em-po">Consome Leite em Pó?</label>
-                    <select id="consome-leite-em-po" name="Consome Leite em Pó?" required>
-                        <option value="sim">Sim</option>
-                        <option value="nao">Não</option>
-                    </select><br><br>
-                    
-                    <label for="quantas-pessoas-tem-na-sua-casa">Quantas Pessoas há na Sua Casa?</label>
-                    <input type="number" id="número" name="Número de Pessoas em Casa" required><br><br>
-                    
-                    <label for="quantas-tomam-leite">Quantas Tomam Leite?</label>
-                    <input type="number" id="número-leite" name="Número de Pessoas que Tomam leite" required><br><br>
-                    
-                    <label for="nome-chefe">Nome da Chefia Imediata:</label>
-                    <input type="text" id="chefia" name="Chefia Imediata" placeholder="Digite o nome do seu chefe" required><br><br>
-                    
-                    <label for="comentarios">Possui alguma alergia alimentar? Se sim, quais?</label>
-                    <textarea id="comentarios" name="Alergia alimentar (comentarios)" rows="4" cols="50"></textarea><br><br>
+             <div class="form" id="formulario">
+        <form id="meuFormulario" onsubmit="abrirPopupEmail(event)">
+            <label for="nome">Nome do Requisitante:</label>
+            <input type="text" id="nome" name="Nome" placeholder="Digite seu nome" required><br><br>
             
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/forms/obrigado.html">
-                    
-                    <button class="button" type="submit">Enviar</button>
-                </form>
+            <label for="matricula">Matricula:</label>
+            <input type="number" id="matricula" name="Matricula" placeholder="Digite sua matricula" required><br><br>
             
-                <img class="gif-meio-1" src="animation_llzbb57r_small.gif">
-                <img class="gif-meio-2" src="animation_llza36eq_small.gif">
-            </div>
+            <label for="data-de-nascimento">Data de Nascimento:</label>
+            <input type="date" id="date" name="Data de Nascimento" required><br><br>
+            
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00" required><br><br>
+            
+            <label for="setor">Setor:</label>
+            <select id="setor" name="Setor" required>
+                <option value="ditic">DITIC</option>
+                <option value="cadi">CADI</option>
+                <option value="apoio">Apoio Administrativo</option>
+                <option value="nupemec">NUPEMEC</option>
+                <option value="cest">Cast</option>
+                <option value="advocacia">Advocacia</option>
+            </select><br><br>
+            
+            <label for="tipo-de-leite">Tipo de Leite:</label>
+            <select id="tipo-de-leite" name="Tipo de Leite" required>
+                <option value="integral">Integral</option>
+                <option value="sem-lactose">Sem Lactose</option>
+                <option value="desnatado">Desnatado</option>
+                <option value="semi-desnatado">Semi Desnatado</option>
+                <option value="sem gordura">Sem Gordura</option>
+            </select><br><br>
+            
+            <label for="é-intolerante">É Intolerante?</label>
+            <select id="é-intolerante" name="É Intolerante?" required>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select><br><br>
+            
+            <label for="marca-de-leite-preferida">Marca de Leite Preferida:</label>
+            <input type="text" id="marca-de-leite-preferida" name="Marca de Leite Preferida" placeholder="Sua marca preferida" required><br><br>
+            
+            <label for="consome-leite-em-po">Consome Leite em Pó?</label>
+            <select id="consome-leite-em-po" name="Consome Leite em Pó?" required>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select><br><br>
+            
+            <label for="quantas-pessoas-tem-na-sua-casa">Quantas Pessoas há na Sua Casa?</label>
+            <input type="number" id="número" name="Número de Pessoas em Casa" required><br><br>
+            
+            <label for="quantas-tomam-leite">Quantas Tomam Leite?</label>
+            <input type="number" id="número-leite" name="Número de Pessoas que Tomam leite" required><br><br>
+            
+            <label for="nome-chefe">Nome da Chefia Imediata:</label>
+            <input type="text" id="chefia" name="Chefia Imediata" placeholder="Digite o nome do seu chefe" required><br><br>
+            
+            <label for="comentarios">Possui alguma alergia alimentar? Se sim, quais?</label>
+            <textarea id="comentarios" name="Alergia alimentar (comentarios)" rows="4" cols="50"></textarea><br><br>
+            
+            <button class="button" type="submit">Enviar</button>
+        </form>
+
+        <img class="gif-meio-1" src="animation_llzbb57r_small.gif">
+        <img class="gif-meio-2" src="animation_llza36eq_small.gif">
+    </div>
+
+    <!-- Pop-up para inserir o email -->
+    <div class="overlay" id="overlay"></div>
+    <div class="email-popup" id="emailPopup">
+        <h3>Para qual email você deseja enviar os dados?</h3>
+        <input type="email" id="emailDestino" placeholder="Digite o email de destino" required>
+        <button onclick="enviarFormulario()">Confirmar</button>
+        <button onclick="fecharPopup()">Cancelar</button>
+    </div>
 
     <footer class="footer text-center" id="rodape" data-aos="fade-up">
         <div class="row">
@@ -140,6 +170,8 @@
     }
     });
 </script>
+
+<script src="script.js"></script>
 
 <Script src="https://code.jquery.com/jquery-3.7.1.min.js"></Script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
