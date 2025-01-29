@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-     <style>
+    <style>
         .email-popup {
             display: none;
             position: fixed;
@@ -31,20 +31,49 @@
             background: rgba(0,0,0,0.5);
             z-index: 999;
         }
+        .button-primary, .button-secondary {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .button-primary {
+            background: #4a90e2;
+            color: white;
+            border: none;
+        }
+
+        .button-primary:hover {
+            background: #357abd;
+        }
+
+        .button-secondary {
+            background: white;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+
+        .button-secondary:hover {
+            background: #f5f5f5;
+        }
+
     </style>
 </head>
 <body>
     <header class="cabecalho" data-aos="fade-down">  
-        <img class="cabecalho-imagem" src="Capturar.png" alt="logo">
+        <a href="../index.html"><img class="cabecalho-imagem" src="Capturar.png" alt="logo"></a>
         <nav class="cabecalho-menu">
-            <a class="cabecalho-menu-item" href="#formulario"><img class=imagem-cabecalho src="../imagens/formulario-de-contato.png">Inicio</a>
-            <a class="cabecalho-menu-item" href="../index.html"><img class=imagem-cabecalho src="../imagens/casa.png">Voltar</a>
+            <a class="cabecalho-menu-item" href="#formulario"><img class=imagem-cabecalho src="../imagens/formulario-de-contato.png" width="20px" height="20px">Inicio</a>
+            <a class="cabecalho-menu-item" href="../index.html"><img class=imagem-cabecalho src="../imagens/casa.png" width="20px" height="20px">Voltar</a>
         </nav>
     </header>
 
     <div class="row align-items-center">
         <div class="banner" data-aos="fade-right">
-            <img src="vale-leite.jpg" class="img-fluid banner-image">
+            <a href="../index.html"><img src="vale-leite.jpg" class="img-fluid banner-image"></a>
         </div>
     </div>
 
@@ -54,8 +83,8 @@
                 <h2>Formulário Vale Leite</h2>
             </div>
         
-             <div class="form" id="formulario">
-        <form id="meuFormulario" onsubmit="abrirPopupEmail(event)">
+            <div class="form" id="formulario">
+                <form id="meuFormulario" onsubmit="abrirPopupEmail(event)">
             <label for="nome">Nome do Requisitante:</label>
             <input type="text" id="nome" name="Nome" placeholder="Digite seu nome" required><br><br>
             
@@ -126,10 +155,10 @@
     <div class="email-popup" id="emailPopup">
         <h3>Para qual email você deseja enviar os dados?</h3>
         <input type="email" id="emailDestino" placeholder="Digite o email de destino" required>
-        <button onclick="enviarFormulario()">Confirmar</button>
-        <button onclick="fecharPopup()">Cancelar</button>
+        <button class="button-primary" onclick="enviarFormulario()">Confirmar</button>
+        <button class="button-secondary" onclick="fecharPopup()">Cancelar</button>
     </div>
-
+</div>
     <footer class="footer text-center" id="rodape" data-aos="fade-up">
         <div class="row">
             <!-- Footer Location -->
@@ -152,7 +181,6 @@
         </div>
     </div>
     </footer>
-    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
