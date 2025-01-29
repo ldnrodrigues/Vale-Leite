@@ -2,6 +2,8 @@ function abrirPopupEmail(event) {
     event.preventDefault();
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('emailPopup').style.display = 'block';
+
+    document.getElementById('emailPopup').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function fecharPopup() {
